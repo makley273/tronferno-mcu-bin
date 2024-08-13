@@ -43,9 +43,9 @@ echo
 
 run_esptool() {
 echo "Flash firmware using esptool.py"
-$esptool --chip esp32 --port $comport --baud 230400 \
+$esptool --chip esp32s3 --port $comport --baud 230400 \
     --before default_reset --after hard_reset \
-    write_flash -z --flash_mode dio --flash_freq 40m --flash_size detect \
+    write_flash --force -z --flash_mode dio --flash_freq 40m --flash_size detect \
     0x1000 $fwdir/bootloader.bin \
     0x8000 $fwdir/partitions.bin \
     $part_ota0 $fwdir/tronferno-mcu.bin \
