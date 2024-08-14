@@ -46,7 +46,7 @@ co_master:
 	git submodule init  &&  git -C $(TRONFERNO_MCU_ROOT) submodule update --init --recursive
 
 pre_esp32: co_master test_host
-	# cd $(TRONFERNO_MCU_ROOT) && git checkout --force $(GIT_BRANCH) && git pull && git clean -fd
+	cd $(TRONFERNO_MCU_ROOT) && git checkout --force $(GIT_BRANCH) && git pull && git clean -fd
 	mkdir -p firmware/esp32
 	make  $(ESP32_MK_FLAGS) esp32-clean
 test_esp32:
